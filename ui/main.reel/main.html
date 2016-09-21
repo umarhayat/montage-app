@@ -13,6 +13,23 @@
                 "element": {"#": "main"}
             }
         },
+        "button": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "button"},
+                "contenteditable": "true",
+                "dir": "ltr",
+                "draggable": "true",
+                "enabled": true,
+                "label": "Button"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "rangeController"}
+                }
+            ]
+        },
         "list": {
             "prototype": "digit/ui/list.reel",
             "properties": {
@@ -20,8 +37,15 @@
                 "content": [
                     "",
                     ""
-                ]
+                ],
+                "contentController": {"@": "rangeController"},
+                "contenteditable": "true",
+                "dir": "ltr",
+                "draggable": "true"
             }
+        },
+        "rangeController": {
+            "prototype": "montage/core/range-controller"
         },
         "title": {
             "prototype": "digit/ui/title.reel",
@@ -36,6 +60,7 @@
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
         <h1 data-montage-id="title">
+            <button data-montage-id="button"></button>
             <ul data-montage-id="list">
                 <li></li>
             </ul>
